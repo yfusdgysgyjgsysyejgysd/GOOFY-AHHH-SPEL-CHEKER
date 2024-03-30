@@ -1,0 +1,37 @@
+import tkinter
+from tkinter import *
+from textblob import TextBlob
+
+root=Tk()
+root.title("spelinkg detecteorar")
+root.geometry("700x400")
+root.config(background="#dae6f6")
+
+def check_speling():
+    word=enter_text.get()
+    a=TextBlob(word)
+    right=str(a.correct())
+    
+    cs=Label(root,text="corect txt is:",font=("poppins",20),bg="#dae6f6",fg="#000000")
+    cs.place(x=100,y=250)
+    spel.config(text=right)
+    
+    
+
+heading=Label(root,text="SPEL CHEKER",font=("Trebuchet MS",30,"bold"),bg="#dae6f6",fg="#000000")
+heading.pack(pady=(50,0))
+
+
+enter_text=Entry(root,justify="center",width=30,font=("poppins",25),bg="white",border=2)
+enter_text.pack(pady=10)
+enter_text.focus
+
+
+button=Button(root,text="CHEK",font=("arial",20,"bold"),fg="white",bg="red",command=check_speling)
+button.pack()
+
+spel=Label(root,font=("poppins",20),bg="#dae6f6",fg="#000000")
+spel.place(x=350,y=250)
+
+
+root.mainloop()
